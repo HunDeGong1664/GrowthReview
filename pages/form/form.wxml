@@ -1,0 +1,56 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{false}}">
+	<!-- <view slot="backText">返回</view> -->
+	<view slot="content">儿童信息</view>
+</cu-custom>
+<form>
+	<view class="cu-form-group margin-top">
+		<view class="title">姓名</view>
+		<input placeholder="请输入儿童姓名" bindinput="NameInput" maxlength="10"></input>
+	</view>
+  <radio-group class="block cu-form-group" bindchange="SexSelect">
+    <view class="title">性别</view>
+    <view>
+      男<radio value="1" class="pink margin-left-sm margin-right-sm" ></radio>
+      女<radio value="0" class="pink margin-left-sm"></radio>
+    </view>
+  </radio-group>
+  <view class="cu-form-group">
+		<view class="title">民族</view>
+		<input placeholder="请输入民族" maxlength="20" bindinput="NationChange"></input>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">生日</view>
+		<picker mode="date" value="{{date}}" start="" end="" bindchange="DateChange">
+			<view class="picker">
+				{{date}}
+			</view>
+		</picker>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">所在地区</view>
+		<picker mode="region" bindchange="RegionChange" value="{{region}}" custom-item="{{customItem}}">
+			<view class="picker">
+				{{region[0]}}，{{region[1]}}，{{region[2]}}
+			</view>
+		</picker>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">家庭地址</view>
+		<input placeholder="请输入详细地址（可选）" maxlength="40" bindinput="AddressChange"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">联系电话</view>
+		<input type="number" placeholder="请输入联系电话（可选）" maxlength="11" bindinput="PhoneNumberChange"></input>
+		<view class="cu-capsule radius">
+			<view class="cu-tag bg-gradual-pink">
+				+86
+			</view>
+			<view class="cu-tag line-pink">
+				中国大陆
+			</view>
+		</view>
+	</view>
+</form>
+<view class="padding flex flex-direction">
+  <button class="cu-btn bg-gradual-pink margin-tb-sm lg" bindtap="ConfirmClick" >确定</button>
+</view>

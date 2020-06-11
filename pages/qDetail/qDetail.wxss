@@ -1,0 +1,44 @@
+/* pages/qDetail/qDetail.wxss */
+.question-detail-item {
+    background-color: white;
+    padding: 20rpx 0;
+}
+.question-detail-item .icon-text {
+    margin-left: 20rpx;
+    margin-right: 15rpx;
+}
+.question-detail-item .detail-tag {
+    padding: 20rpx;
+    padding-bottom: 0;
+}
+.question-detail-item .detail-title{
+  padding: 10rpx 0;
+}
+.detail-content {
+    padding: 20rpx;
+}
+.detail-content .table {
+    border: 2rpx solid #aaa;
+    display: flex;
+    flex-direction: column;
+    border-bottom: none;
+}
+.detail-content .table-row {
+    display: flex;
+    align-items: stretch;
+    justify-items: center;
+    border-bottom: 2rpx solid #aaa;
+}
+.detail-content .table-row .title{
+    width: 200rpx;
+    padding: 10rpx;
+    display: flex;
+    align-items: center;
+}
+.detail-content .table-row .content{
+    padding: 10rpx;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-left: 2rpx solid #aaa;
+}

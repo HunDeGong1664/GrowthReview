@@ -1,0 +1,204 @@
+<!--pages/result/result.wxml-->
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">儿童发育评测结果</view>
+</cu-custom>
+<view class="page-container">
+	<view id="resultContent" class="result-content share__canvas1">
+		<view class="title draw_canvas">
+			<!-- 西安莲湖区美天康复中心 -->
+			<input class="draw_canvas" type="text" data-type="text" data-text="{{ companyName }}" value="{{ companyName }}" placeholder="请输入机构名称" bindinput="companyNameValueChange" />
+		</view>
+		<view data-type="text" data-text="0~6岁儿童发育行为评估量表（儿心量表 - Ⅱ）报告单" class="subtitle draw_canvas">
+			0~6岁儿童发育行为评估量表（儿心量表 - Ⅱ）报告单
+		</view>
+		<view class="table-container draw_canvas">
+			<view data-type="rect" class="table draw_canvas">
+				<view class="table-row draw_canvas">
+					<view data-type="text" data-text="项目" class="table-col t-title draw_canvas">
+						项目
+					</view>
+					<view data-type="text" data-text="大运动" class="table-col t-content draw_canvas">
+						大运动
+					</view>
+					<view data-type="text" data-text="精细运动" class="table-col t-content draw_canvas">
+						精细运动
+					</view>
+					<view data-type="text" data-text="适应能力" class="table-col t-content draw_canvas">
+						适应能力
+					</view>
+					<view data-type="text" data-text="语言" class="table-col t-content draw_canvas">
+						语言
+					</view>
+					<view data-type="text" data-text="社会行为" class="table-col t-content draw_canvas">
+						社会行为
+					</view>
+					<view data-type="text" data-text="全量表" class="table-col t-content draw_canvas">
+						全量表
+					</view>
+				</view>
+				<view class="table-row draw_canvas">
+					<view class="table-col t-title draw_canvas">
+						智龄(MA)
+					</view>
+					<view wx:for="{{ mentalAges }}" wx:key="unique" class="table-col t-content draw_canvas">
+						{{ item }}
+					</view>
+				</view>
+				<view class="table-row draw_canvas">
+					<view class="table-col t-title draw_canvas">
+						发育商(DQ)
+					</view>
+					<view wx:for="{{ userDQs }}" wx:key="unique" class="table-col t-content draw_canvas">
+						{{ item }}
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="info draw_canvas">
+			<view class="userinfo input-table draw_canvas">
+				<view class="input draw_canvas">
+					<view class="input-title draw_canvas">
+						姓名:
+					</view>
+					<view class="input-content draw_canvas">
+						{{ userInfo.username }}
+					</view>
+				</view>
+				<view class="input draw_canvas">
+					<view class="input-title draw_canvas">
+						性别:
+					</view>
+					<view class="input-content draw_canvas">
+						{{ userInfo.userSex }}
+					</view>
+				</view>
+				<view class="input draw_canvas">
+					<view class="input-title draw_canvas">
+						民族:
+					</view>
+					<view class="input-content draw_canvas">
+						{{ userInfo.nation }}
+					</view>
+				</view>
+			</view>
+			<view class="time input-table draw_canvas">
+				<view class="input draw_canvas">
+					<view class="input-title input-big-title draw_canvas">
+						检测时间:
+					</view>
+					<view class="input-content draw_canvas">
+						{{ today }}
+					</view>
+				</view>
+			</view>
+			<view class="time input-table draw_canvas">
+				<view class="input draw_canvas">
+					<view class="input-title input-big-title draw_canvas">
+						出生日期:
+					</view>
+					<view class="input-content draw_canvas">
+						{{ userInfo.date }}
+					</view>
+				</view>
+			</view>
+			<view class="input-table draw_canvas">
+				<view class="input draw_canvas">
+					<view class="input-title input-big-title draw_canvas">
+						实足月龄:
+					</view>
+					<view class="input-content draw_canvas">
+						{{ currentMonthAge }}
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="reference draw_canvas">
+			<view>
+				本次评估儿童配合度:
+			</view>
+			<view class="square-content draw_canvas">
+				<view data-index="{{ 0 }}" class="square-item draw_canvas" bind:tap="onRadioClick">
+					<text wx:if="{{ radio0 == 1 }}" class="icon-text cuIcon-squarecheck lg text-black draw_canvas"></text>
+					<text wx:if="{{ radio0 == 0 }}" class="icon-text cuIcon-square lg text-black draw_canvas"></text>
+					配合
+				</view>
+				<view data-index="{{ 1 }}" class="square-item draw_canvas" bind:tap="onRadioClick">
+					<text wx:if="{{ radio1 == 1 }}" class="icon-text cuIcon-squarecheck lg text-black draw_canvas"></text>
+					<text wx:if="{{ radio1 == 0 }}" class="icon-text cuIcon-square lg text-black draw_canvas"></text>
+					较配合
+				</view>
+				<view data-index="{{ 2 }}" class="square-item draw_canvas" bind:tap="onRadioClick">
+					<text wx:if="{{ radio2 == 1 }}" class="icon-text cuIcon-squarecheck lg text-black draw_canvas"></text>
+					<text wx:if="{{ radio2 == 0 }}" class="icon-text cuIcon-square lg text-black draw_canvas"></text>
+					不配合
+				</view>
+			</view>
+		</view>
+		<view class="range draw_canvas">
+			发育商参考范围：>95 正常智力、86-95 可以赶上正常、76-85 边缘智力、55-75 轻度障碍、40-54 中度障碍、26-39 重度障碍、≤25 极重度障碍。
+		</view>
+		<view class="result draw_canvas">
+			<view class="input draw_canvas">
+				<view class="input-title input-result-title draw_canvas">
+					测验结果说明:
+				</view>
+				<view class="input-content draw_canvas">
+					{{ userDQdetail }}
+				</view>
+			</view>
+		</view>
+		<view class="opinion draw_canvas">
+			<view class="input draw_canvas">
+				<view class="input-title input-big-title draw_canvas">
+					训练意见:
+				</view>
+				<view class="input-content draw_canvas">
+					大运动：
+					<text>{{ projectRecommends[0] }}</text>
+				</view>
+			</view>
+			<view class="input right-input draw_canvas">
+				<view class="input-content draw_canvas">
+					精细动作：
+					<text>{{ projectRecommends[1] }}</text>
+				</view>
+			</view>
+			<view class="input right-input draw_canvas">
+				<view class="input-content draw_canvas">
+					适应能力：
+					<text>{{ projectRecommends[2] }}</text>
+				</view>
+			</view>
+			<view class="input right-input draw_canvas">
+				<view class="input-content draw_canvas">
+					语言：
+					<text>{{ projectRecommends[3] }}</text>
+				</view>
+			</view>
+			<view class="input right-input draw_canvas">
+				<view class="input-content draw_canvas">
+					社会行为：
+					<text>{{ projectRecommends[4] }}</text>
+				</view>
+			</view>
+		</view>
+		<view class="docter-info draw_canvas">
+			<view class="input draw_canvas">
+				<view class="input-big-title draw_canvas">
+					主试者:
+				</view>
+				<view class="input-content draw_canvas">
+					<input class="docter-input draw_canvas" type="text" value="{{ docterName }}" placeholder="请输入主试者姓名" />
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="blank-view"></view>
+    <view class="bottom-view">
+        <view class="flex flex-direction">
+            <button class="cu-btn bg-gradual-pink lg" bindtap="drawImage" >保存结果到相册</button>
+        </view>
+    </view>
+</view>
+<canvas canvas-id="canvas1" class="share__canvas"></canvas>

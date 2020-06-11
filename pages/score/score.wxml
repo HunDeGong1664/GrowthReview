@@ -1,0 +1,66 @@
+<!--pages/score/score.wxml-->
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">儿童发育评测得分表</view>
+</cu-custom>
+<view class="page-container">
+    <view class="score-content margin-top">
+        <view class="top-content">
+            <view class="top-item">
+                <view class="month-item status0"></view>
+                代表未通过
+            </view>
+            <view class="top-item">
+                <view class="month-item status1"></view>
+                代表已通过
+            </view>
+            <view class="top-item">
+                <view class="month-item status2"></view>
+                代表默认通过
+            </view>
+        </view>
+    </view>
+    <view class="score-content margin-top">
+		<view class="table">
+            <view class="table-row">
+                <view class="table-col title">
+                    项目
+                </view>
+                <view class="table-col content first-col">
+                    评测状态
+                </view>
+            </view>
+            <view class="table-row" wx:for="{{ scores }}" wx:key="unique">
+                <view class="table-col title">
+                    {{ projects[index] }}
+                </view>
+                <view class="table-col content">
+                    <block wx:for="{{ item }}" wx:key="unique" wx:for-index="idx" wx:for-item="scoreObj">
+                        <view wx:if="{{ scoreObj.currentScore == scoreObj.passingGrades }}" class="month-item status1">
+                            <view class="month-item-title">
+                                {{ months[idx] }}
+                            </view>
+                        </view>
+                        <view wx:elif="{{ scoreObj.resultScore == scoreObj.passingGrades }}" class="month-item status2">
+                            <view class="month-item-title">
+                                {{ months[idx] }}
+                            </view>
+                        </view>
+                        <!-- "{{ scoreObj.currentScore < scoreObj.passingGrades }}" -->
+                        <view wx:else class="month-item status0">
+                            <view class="month-item-title">
+                                {{ months[idx] }}
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </view>
+	</view>
+    <view class="blank-view"></view>
+    <view class="bottom-view">
+        <view class="flex flex-direction">
+            <button class="cu-btn bg-gradual-pink lg" bindtap="onResultClick" >生成评分结果</button>
+        </view>
+    </view>
+</view>

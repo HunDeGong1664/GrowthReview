@@ -1,0 +1,71 @@
+<!--pages/qDetail/qDetail.wxml-->
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">{{ project }}</view>
+</cu-custom>
+<view class="page-container">
+	<view wx:for="{{ questions }}" wx:key="unique" class="question-detail-item margin-top">
+    <view class="detail-title">
+			<text class="icon-text cuIcon-question lg text-green"></text>
+			{{ item.title }}
+		</view>
+		<view wx:if="{{ item.annotate == '1' }}" class="detail-title">
+			<text class="icon-text cuIcon-brand lg text-orange"></text>
+			该项目的表现可以通过询问家长获得
+		</view>
+    	<view wx:elif="{{ item.annotate == '2' }}" class="detail-title">
+			<text class="icon-text cuIcon-warn lg text-red"></text>
+			该项目如果未通过需要引起注意
+		</view>
+    	<view class="detail-title">
+			<text class="icon-text cuIcon-calendar lg text-mauve"></text>
+			操作方法和测查通过要求
+		</view>
+    	<view class="detail-content">
+			<view class="table">
+				<view class="table-row">
+					<view class="table-col title">
+						测查项目
+					</view>
+					<view class="table-col content">
+						{{ item.title }}
+					</view>
+				</view>
+				<view class="table-row">
+					<view class="table-col title">
+						操作方法
+					</view>
+					<view class="table-col content">
+						{{ item.detail }}
+					</view>
+				</view>
+				<view class="table-row">
+					<view class="table-col title">
+						测查通过要求
+					</view>
+					<view class="table-col content">
+						{{ item.meetConditions }}
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+  <view class="question-detail-item margin-top">
+		<view class="detail-title">
+			<text class="icon-text cuIcon-info lg text-cyan"></text>
+			注
+		</view>
+		<view class="detail-tag">
+			<view class="tag-item margin-bottom">
+				测查床规格:长 140cm，宽 77cm，高 143cm，栏高 63cm。
+			</view>
+			<view class="tag-item margin-bottom">
+				测查用桌子规格:长 120cm，宽 60cm，高 75cm，桌面颜色深绿。
+			</view>
+			<view class="tag-item margin-bottom">
+				测查用楼梯规格:上平台:由两梯相对合成的平台，长 50cm×宽 60cm×高 50cm(距地面高度)。底座全梯:长 150cm(单梯底座长 75cm)。每一个阶梯面:长 60cm×宽
+25cm×高 17cm，共 3 阶梯。单侧扶栏:长 90cm，直径 2.5cm，从梯面计算扶栏高 40cm，直径 2.5cm。
+			</view>
+		</view>
+	</view>
+</view>

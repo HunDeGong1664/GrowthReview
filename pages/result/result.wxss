@@ -1,0 +1,151 @@
+/* pages/result/result.wxss */
+.result-content{
+    background-color: white;
+    padding: 20rpx 40rpx;
+    font-size: 22rpx;
+    color: black;
+    margin: 30rpx 0;
+}
+.result-content .title {
+    margin-top: 40rpx;
+    font-size: 30rpx;
+    text-align: center;
+    padding: 20rpx 0;
+}
+.result-content .subtitle {
+    text-align: center;
+}
+.result-content .table {
+    margin-top: 10rpx;
+    border: 2rpx solid #000;
+    display: flex;
+    flex-direction: column;
+    border-bottom: none;
+}
+.result-content .table-row {
+    display: flex;
+    align-items: stretch;
+    justify-items: center;
+    border-bottom: 2rpx solid #000;
+}
+.result-content .table-row .t-title{
+    width: 100%;
+    padding: 15rpx 10rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.result-content .table-row .t-content{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-left: 2rpx solid #000;
+    flex-wrap: wrap;
+    padding: 15rpx 10rpx;
+}
+.result-content .info{
+    margin-top: 30rpx;
+    padding: 30rpx 0;
+}
+.info .userinfo {
+    display: flex;
+}
+.info .input-table {
+    padding: 15rpx 0;
+}
+.result-content .input {
+    display: flex;
+    width: 60%;
+}
+.result-content .input:first-of-type {
+    width: 90%;
+}
+.input .input-title {
+    width: 80rpx;
+    display: inline-flex;
+    align-items: center;
+}
+.input .input-big-title {
+    width: 120rpx;
+}
+.input .input-result-title {
+    width: 200rpx;
+}
+.input .input-content {
+    width: 100%;
+    border-bottom: 2rpx solid black;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10rpx;
+    margin-left: 10rpx;
+}
+.result-content .reference {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.result-content .square-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.square-content .square-item {
+    margin-right: 30rpx;
+}
+.result-content .range {
+    line-height: 40rpx;
+    margin-top: 20rpx;
+}
+.result-content .result {
+    margin-top: 40rpx;
+}
+.result-content .opinion {
+    margin-bottom: 40rpx;
+    margin-top: 60rpx;
+}
+.opinion .input {
+    margin-top: 20rpx;
+    display: flex;
+    width: 90%;
+}
+.opinion .right-input {
+    width: 76%;
+    margin-left: 14%;
+}
+.opinion .input-content {
+    justify-content: flex-start;
+    padding-left: 20rpx;
+}
+.result-content .docter-info {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 100rpx;
+}
+.docter-info .input {
+    width: 100%;
+    margin-left: 20%;
+    justify-content: flex-end;
+}
+.docter-info .input-big-title {
+    width: 80rpx;
+    display: flex;
+    align-items: center;
+}
+.docter-info .input-content{
+    width: 200rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.docter-info .docter-input{
+    text-align: center;
+}
+.share__canvas {
+    width: 100%;
+    height: 2000rpx;
+}

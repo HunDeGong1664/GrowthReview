@@ -1,0 +1,25 @@
+{
+  "pages": [
+    "pages/result/result",
+    "pages/form/form",
+    "pages/score/score",
+    "pages/qDetail/qDetail",
+    "pages/question/question",
+    "pages/index/index",
+    "pages/home/home",
+    "pages/login/login",
+    "pages/userList/userList",
+    "pages/manager/manager"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "小橘儿童发育评测",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white"
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom/cu-custom"
+  },
+  "sitemapLocation": "sitemap.json"
+}

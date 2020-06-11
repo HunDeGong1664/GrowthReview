@@ -1,0 +1,60 @@
+<!--pages/question/question.wxml-->
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">儿童发育评测</view>
+</cu-custom>
+<view class="page-container">
+  <view class="top-view">
+    <view class="top-left-view" bind:tap="onPrevClick">
+      <view class="cu-item">
+        <text class="icon-text cuIcon-roundleftfill-copy lg text-gray"></text>
+        <text class="icon-title">上个月龄</text>
+      </view>
+    </view>
+    <view class="top-center-view">
+      <view class="top-title">
+        当前月龄
+      </view>
+      <view class="top-month">
+        {{ monthAge }}
+      </view>
+    </view>
+    <view class="top-right-view" bind:tap="onNextClick">
+      <view class="cu-item">
+        <text class="icon-title">下个月龄</text>
+        <text class="icon-text cuIcon-roundrightfill lg text-gray"></text>
+      </view>
+    </view>
+  </view>
+  <view class="middle-view">
+    <view wx:for="{{ question }}" wx:key="unique" class="question-item margin-top">
+      <view data-index="{{ index }}" class="question-title" bind:tap="OnDetailClick">
+        <view class="title">
+          {{ index + 1 }}.{{ projects[index] }}
+        </view>
+        <view class="detail">
+          <text class="icon-text cuIcon-info lg text-cyan"></text>
+        </view>
+      </view>
+      <checkbox-group id="{{ index }}" bindchange="checkboxChange">
+        <view wx:for="{{ item }}" wx:key="unique" wx:for-index="idx" wx:for-item="itemQ" class="cu-form-group">
+          <view class="title">
+            {{ itemQ.title }}（{{ scores[index] }}）
+            <text wx:if="{{ itemQ.annotate == '1' }}" class="icon-text cuIcon-brand lg text-orange"></text>
+            <text wx:elif="{{ itemQ.annotate == '2' }}" class="icon-text cuIcon-warn lg text-red"></text>
+          </view>
+          <checkbox value="{{ idx }}" class="round pink" checked="{{ checks[index][idx] }}" ></checkbox>
+        </view>
+      </checkbox-group>
+      <!-- <view class="question-img-view">
+        <image class="question-img" src="/res/images/question_img_01.png" mode="widthFix" />
+      </view> -->
+    </view>
+  </view>
+  <view class="blank-view"></view>
+  <view class="bottom-view">
+    <view class="flex flex-direction">
+      <button class="cu-btn bg-gradual-pink lg" bindtap="OnNextClick" >下一步</button>
+    </view>
+  </view>
+</view>

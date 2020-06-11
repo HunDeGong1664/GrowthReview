@@ -1,0 +1,69 @@
+/* pages/score/score.wxss */
+.score-content {
+    padding: 20rpx;
+    background-color: white;
+}
+.score-content .table {
+    border: 2rpx solid #aaa;
+    display: flex;
+    flex-direction: column;
+    border-bottom: none;
+}
+.score-content .table-row {
+    display: flex;
+    align-items: stretch;
+    justify-items: center;
+    border-bottom: 2rpx solid #aaa;
+}
+.score-content .table-row .title{
+    width: 200rpx;
+    padding: 10rpx;
+    display: flex;
+    align-items: center;
+}
+.score-content .table-row .content{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-left: 2rpx solid #aaa;
+    flex-wrap: wrap;
+}
+.score-content .table-row .first-col{
+    padding: 10rpx;
+}
+.score-content .month-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 30rpx;
+    border: 2rpx solid #a0a0a0;
+    margin: 10rpx;
+}
+/* 未通过 */
+.score-content .status0 {
+    background-color: white;
+}
+/* 已通过 */
+.score-content .status1 {
+    background-color: #8dc63f;
+}
+/* 默认通过 */
+.score-content .status2 {
+    background-color: #fbbd08;
+}
+.month-item .month-item-title {
+    color: #333333;
+    font-size: 32rpx;
+}
+.score-content .top-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.top-content .top-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
